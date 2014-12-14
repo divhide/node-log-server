@@ -19,6 +19,16 @@ log-server -p 8000 -d ./logs/
 
 ```
 
+The server expose the following url to submit the logs. You can replace the LOGNAME by some text that will identify
+the generated log file. The file will be created on: _'LOGSDIR/DATE/LOGNAME.log'_.
+
+```
+
+POST http://localhost:8000/LOGNAME/log
+
+
+```
+
 ## Use cases
 
 * General remote log submission without the need for a complex log system
@@ -27,8 +37,7 @@ log-server -p 8000 -d ./logs/
 
 ## Example: Log some data
 
-By running the following line you're dumping file.txt into the a log named 'LOGNAME.log'. You can submit
-different logs to different files by changing the url.
+By running the following line you're dumping file.txt into the a log named 'LOGNAME.log'.
 
 
 ```
