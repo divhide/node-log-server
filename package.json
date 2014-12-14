@@ -1,7 +1,7 @@
 {
   "name": "node-log-server",
   "version": "1.0.0",
-  "description": "Save your application logs to the server",
+  "description": "Simple file based log server",
   "main": "src/Index.js",
   "license": "MIT",
   "scripts": {
@@ -10,8 +10,11 @@
   "keywords": [
     "logs",
     "log",
+    "text",
+    "file",
     "server",
-    "http"
+    "http",
+    "UI"
   ],
   "author": {
     "name": "Oscar Brito",
