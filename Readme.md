@@ -32,8 +32,8 @@ POST http://localhost:8000/LOGNAME/log
 
 ```
 
-![Screenshot1](https://raw.githubusercontent.com/aetheon/node-log-server/master/screenshots/1.png)
-![Screenshot2](https://raw.githubusercontent.com/aetheon/node-log-server/master/screenshots/2.png)
+![Screenshot1](https://raw.githubusercontent.com/divhide/node-log-server/master/screenshots/1.png)
+![Screenshot2](https://raw.githubusercontent.com/divhide/node-log-server/master/screenshots/2.png)
 
 ## Use cases
 
