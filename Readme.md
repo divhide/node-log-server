@@ -26,7 +26,6 @@ the generated log file. The file will be created on: _'LOGSDIR/DATE/LOGNAME.log'
 
 POST http://localhost:8000/LOGNAME/log
 
-
 ```
 
 ## Use cases
