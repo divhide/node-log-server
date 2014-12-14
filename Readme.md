@@ -1,14 +1,41 @@
 
 # Log server
 
-A simple server that received text and dumps that into a file. Also you can view the available
-logs from the server.
+A simple log server that receive text and dumps it into a file. Every log file will have a daily
+representation, meaning that you can easily delete old logs.
 
-## Example
+Be aware that there's no maximum size on the logs being stored!
 
-log-server -p 8000 -d ./
+Also it provides you a web interface to access the logs directory.
 
-curl -X POST --data-binary @file.txt http://localhost:8000/log --header "Content-Type:text/plain"
+
+```
+
+# log-server will store the current logs on the current folder by default
+log-server -p 8000
+
+# set log-server to store the logs on './logs/' folder
+log-server -p 8000 -d ./logs/
+
+
+```
+
+## Example: Log some data
+
+By running the following line you're dumping file.txt into the a log named 'LOGNAME.log'. You can submit
+different logs to different files by changing the url.
+
+
+```
+
+curl -X POST --data-binary @file.txt http://localhost:8000/LOGNAME/log --header "Content-Type:text/plain"
+
+```
+
+## Use Case
+
+* General remote log submission without the need for a complex log system
+* Submit Mobile application logs by username, device, ...
 
 
 ## Authors

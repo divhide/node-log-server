@@ -12,15 +12,47 @@ var fs  = require("fs"),
  * @return {String}
  *
  */
-var getLogFilename = function(name){
+var getLogDirectory = function(baseDir){
 
-    name = name || "default";
+    if(!baseDir && typeof(baseDir)!="string" ){
+        throw new Error("Base Log dir is required!");
+    }
 
     /// calculate the log file name
     var date = new Date();
+    var dirPath = _.template(
+        "<%= baseDir %>/<%= year %>-<%= month %>-<%= day %>",
+        { year: date.getFullYear(), month: date.getMonth()+1, day: date.getDate(), baseDir: baseDir });
+
+    /// auto create directories
+    if (!fs.existsSync(baseDir)){
+        fs.mkdirSync(baseDir);
+    }
+
+    if (!fs.existsSync(dirPath)){
+        fs.mkdirSync(dirPath);
+    }
+
+    return dirPath;
+
+};
+
+/**
+ *
+ * Get the log file name
+ *
+ * @return {String}
+ *
+ */
+var getLogFilename = function(logdir, name){
+
+    if(!name && typeof(name)!="string" ){
+        throw new Error("Log name is required!");
+    }
+
+    /// calculate the log file name
     return _.template(
-        "<%= year %>-<%= month %>-<%= day %>_<%= filename %>.log",
-        { year: date.getFullYear(), month: date.getMonth()+1, day: date.getDate(), filename: name });
+        "<%= dir %>/<%= filename %>.log", { dir: logdir, filename: name });
 
 };
 
@@ -32,10 +64,13 @@ var getLogFilename = function(name){
  * @param {String} name
  *
  */
-var Log = function(name){
+var Log = function(baseLogDir, name){
+
+    /// get the base log dir
+    baseLogDir = getLogDirectory(baseLogDir);
 
     /// get the log filename
-    name = getLogFilename(name)
+    name = getLogFilename(baseLogDir, name);
 
     var self = {
 
