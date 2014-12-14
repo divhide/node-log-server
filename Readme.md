@@ -16,6 +16,7 @@ log-server -p 8000
 log-server -p 8000 -d ./logs/
 
 
+
 ```
 
 The server expose the following url to submit the logs. You can replace the LOGNAME by some text that will identify
@@ -25,10 +26,11 @@ the generated log file. The file will be created on: _'LOGSDIR/DATE/LOGNAME.log'
 
 POST http://localhost:8000/LOGNAME/log
 
+
 ```
 
-[![Screenshot1](https://raw.githubusercontent.com/aetheon/node-log-server/master/screenshots/1.png)]
-[![Screenshot2](https://raw.githubusercontent.com/aetheon/node-log-server/master/screenshots/2.png)]
+![Screenshot1](https://raw.githubusercontent.com/aetheon/node-log-server/master/screenshots/1.png)
+![Screenshot2](https://raw.githubusercontent.com/aetheon/node-log-server/master/screenshots/2.png)
 
 ## Use cases
 
@@ -44,6 +46,7 @@ By running the following line you're dumping file.txt into the a log named 'LOGN
 ```
 
 curl -X POST --data-binary @file.txt http://localhost:8000/LOGNAME/log --header "Content-Type:text/plain"
+
 
 ```
 
