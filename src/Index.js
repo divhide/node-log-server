@@ -12,10 +12,19 @@ var _           = require('lodash'),
 /// Process the arguments
 ///
 simpleargs
-    .define('p','port', 8000, 'Port number')
-    .define('d','dir', __dirname, 'Logs directory');
+    .define('p','port', null, 'Port number')
+    .define('d','dir', null, 'Logs directory');
 
 var options = simpleargs(process.argv.slice(2));
+
+/// validate the parameters
+if(!options.port || !options.dir){
+    console.log("Usage:");
+    console.log();
+    console.log("\t log-server -p PORT -d LOGSDIR");
+    console.log();
+    process.exit(1);
+}
 
 ///
 /// Initialize express
@@ -26,8 +35,6 @@ var app = express();
 // parse text/plain
 app.use(
     bodyParser.raw({ type: 'text/plain', limit: 1024 * 1024 * 10 }));
-
-app.engine('html', require('swig').renderFile);
 
 ///
 /// POST '/:id/log' - Log the request body into a file. Each request will appended

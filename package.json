@@ -1,5 +1,5 @@
 {
-  "name": "node-log-server",
+  "name": "log-server",
   "version": "1.0.0",
   "description": "Simple file based log server",
   "main": "src/Index.js",
@@ -32,7 +32,7 @@
     "q": ">=2.0.1",
     "serve-index": "^1.5.3",
     "serve-static": "^1.7.1",
-    "simpleargs": "0.0.2",
+    "simpleargs": "0.0.2"
   },
   "bin": {
     "log-server": "bin/log-server.js"
