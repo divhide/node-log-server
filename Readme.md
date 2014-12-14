@@ -1,5 +1,8 @@
 # [![Divhide](http://blog.divhide.com/assets/images/divhide_128px.png)](http://divhide.com/) Log server
 
+[![Dependency Status](https://gemnasium.com/divhide/node-log-server.svg)](https://gemnasium.com/divhide/node-log-server)
+
+
 A simple log server that receive text and dumps it into a file. Every log file will have a daily
 representation, meaning that you can easily delete old logs.
 
