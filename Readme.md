@@ -1,5 +1,4 @@
-
-# Log server
+# [![Divhide](http://blog.divhide.com/assets/images/divhide_128px.png)](http://divhide.com/) Log server
 
 A simple log server that receive text and dumps it into a file. Every log file will have a daily
 representation, meaning that you can easily delete old logs.
@@ -27,6 +26,9 @@ the generated log file. The file will be created on: _'LOGSDIR/DATE/LOGNAME.log'
 POST http://localhost:8000/LOGNAME/log
 
 ```
+
+[![Screenshot1](https://raw.githubusercontent.com/aetheon/node-log-server/master/screenshots/1.png)]
+[![Screenshot2](https://raw.githubusercontent.com/aetheon/node-log-server/master/screenshots/2.png)]
 
 ## Use cases
 

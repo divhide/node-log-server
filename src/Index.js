@@ -26,6 +26,9 @@ if(!options.port || !options.dir){
     process.exit(1);
 }
 
+/// normalize options
+options.dir = path.resolve(options.dir);
+
 ///
 /// Initialize express
 ///
@@ -55,11 +58,11 @@ app.post('/:id/log/', function(req, res){
 /// Get '/log' - Log the request body into a file. Each request will appended
 /// into a file.
 ///
-app.get('/', serveIndex(options.dir, {'icons': true}));
-app.get('/*', serveStatic(options.dir, {'icons': true}));
+app.get('/*', serveIndex(options.dir, { icons: true, view: 'details' }));
+app.get('/*.log', serveStatic(options.dir, { icons: true }));
 
+/// Start server
 app.listen(options.port);
-
 
 ///
 /// Show somethin on stdout
@@ -68,4 +71,4 @@ console.log(
     _.template("http://localhost:<%= port %>", { port: options.port }));
 
 console.log(
-    _.template("Logs directory '<%= dir %>'", { dir: path.resolve(options.dir) }));
+    _.template("Logs directory '<%= dir %>'", { dir: options.dir }));
