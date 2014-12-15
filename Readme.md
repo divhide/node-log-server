@@ -10,7 +10,11 @@ Be aware that there's no maximum size on the logs being stored!
 
 Also it provides you a web interface to access the logs directory.
 
+
 ```sh
+
+# install log-server
+npm i log-server -g
 
 # log-server will store the current logs on the current folder by default
 log-server -p 8000
