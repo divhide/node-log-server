@@ -1,5 +1,6 @@
 
 var _           = require('lodash'),
+    fs          = require('fs'),
     path        = require('path'),
     express     = require('express'),
     bodyParser  = require('body-parser'),
@@ -28,6 +29,14 @@ if(!options.port || !options.dir){
 
 /// normalize options
 options.dir = path.resolve(options.dir);
+
+
+///
+/// Initalize filesystem
+///
+if (!fs.existsSync(options.dir)){
+    fs.mkdirSync(options.dir);
+}
 
 ///
 /// Initialize express
