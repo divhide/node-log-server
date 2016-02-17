@@ -77,7 +77,7 @@ app.listen(options.port);
 /// Show somethin on stdout
 ///
 console.log(
-    _.template("http://localhost:<%= port %>", { port: options.port }));
+    _.template("http://localhost:<%= port %>")({ port: options.port }));
 
 console.log(
-    _.template("Logs directory '<%= dir %>'", { dir: options.dir }));
+    _.template("Logs directory '<%= dir %>'")({ dir: options.dir }));

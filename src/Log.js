@@ -20,8 +20,7 @@ var getLogDirectory = function(baseDir){
 
     /// calculate the log file name
     var date = new Date();
-    var dirPath = _.template(
-        "<%= baseDir %>/<%= year %>-<%= month %>-<%= day %>",
+    var dirPath = _.template("<%= baseDir %>/<%= year %>-<%= month %>-<%= day %>")(
         { year: date.getFullYear(), month: date.getMonth()+1, day: date.getDate(), baseDir: baseDir });
 
     /// auto create directories
@@ -51,8 +50,7 @@ var getLogFilename = function(logdir, name){
     }
 
     /// calculate the log file name
-    return _.template(
-        "<%= dir %>/<%= filename %>.log", { dir: logdir, filename: name });
+    return _.template("<%= dir %>/<%= filename %>.log")({ dir: logdir, filename: name });
 
 };
 
